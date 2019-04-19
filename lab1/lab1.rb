@@ -5,7 +5,8 @@ class MyComplex
     #it will display error when write :realNumber , :imagNumber
 
     attr_accessor :realNumber , :imagNumber
-   
+    $count_addition = 0
+    $count_multiplication = 0
 
     def initialize (x =0 , i=0)
         @realNumber = x
@@ -17,7 +18,7 @@ class MyComplex
             @realNumber + obj.realNumber ,
         #    (@imagNumber + obj.imagNumber).to_s + "i")
         (@imagNumber + obj.imagNumber))
-
+        $count_addition = $count_addition + 1
         
     end
     def *(obj)
@@ -27,7 +28,7 @@ class MyComplex
         ( (@realNumber* obj.realNumber )-(@imagNumber *obj.imagNumber)), ((@realNumber * (obj.imagNumber)) + (@imagNumber * obj.realNumber))
 
         )
-        
+        $count_multiplication = $count_multiplication + 1
     end
     def bulk_add (myObjects = Array.new)
         sum = MyComplex.new 
@@ -47,7 +48,7 @@ class MyComplex
         }
     end 
     def  get_stats​()
-        
+        puts "The number of using addition #{$count_addition}"
 
     end
 end
